@@ -1,19 +1,9 @@
-import os
-
 from flask import Flask
-from dotenv import load_dotenv
-from supabase import create_client
-
-
-load_dotenv()
+from auth.routes import auth_bp
 
 app = Flask(__name__)
 
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
-
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-
+app.register_blueprint(auth_bp)
 
 @app.route("/")
 def home():
