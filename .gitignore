@@ -1,1 +1,5 @@
 temple_admin/.env
+*.text
+temple_admin/__pycache__/supabase_client.cpython-313.pyc
+temple_admin/auth/__pycache__/__init__.cpython-313.pyc
+temple_admin/auth/__pycache__/routes.cpython-313.pyc
