@@ -1,9 +1,13 @@
 from flask import Flask
 from auth.routes import auth_bp
+from pages.routes import pages_bp
+from admin.routes import admin_bp
 
 app = Flask(__name__)
 
 app.register_blueprint(auth_bp)
+app.register_blueprint(pages_bp)
+app.register_blueprint(admin_bp)
 
 @app.route("/")
 def home():
