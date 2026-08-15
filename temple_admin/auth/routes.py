@@ -1,6 +1,6 @@
 from flask import Blueprint,request,jsonify
 from supabase_client import supabase
-
+from middleware.auth import require_auth
 auth_bp = Blueprint("auth", __name__)
 
 @auth_bp.route("/auth/sigup", methods =["POST"])
@@ -47,3 +47,17 @@ def login():
         "access_token" : response.session.access_token,
         "user_id":response.user.id
     }),200
+
+
+@auth_bp.route("/api/auth/logout", methods=["POST"])
+@require_auth
+def logout(user):
+    try:
+        supabase.auth.sign_out()
+
+        return "", 204
+
+    except Exception:
+        return jsonify({
+            "error": "Logout failed"
+        }), 500
