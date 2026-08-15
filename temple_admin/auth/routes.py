@@ -9,10 +9,17 @@ def signup():
     email = data.get("email")
     password = data.get("password")
 
-    response = supabase.auth.sign_up({
-        "email":email,
-        "password":password
-    })
+    try:
+        response = supabase.auth.sign_up({
+            "email":email,
+            "password":password
+            })
+    except Exception:
+
+        return jsonify({
+            "error": "Invalid input/format"
+        }),400   
+
     return jsonify({
         "message":"sigup succesfully",
         "user_id":response.user.id
@@ -25,10 +32,15 @@ def login():
     email = data.get("email")
     password = data.get("password")
 
-    response = supabase.auth.sign_in_with_password({
-        "email":email,
-        "password":password
-    })
+    try:
+        response = supabase.auth.sign_in_with_password({
+            "email":email,
+            "password":password
+            })
+    except Exception:
+        return jsonify({
+            "error": "Invalid login credentials"
+        }),404    
 
     return jsonify({
         "message": "login Succesfully",
