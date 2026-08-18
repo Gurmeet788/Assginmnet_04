@@ -7,7 +7,7 @@ pages_bp = Blueprint("pages", __name__)
 @pages_bp.route("/admin/page/dashbord", methods = ["GET"])
 
 @require_auth
-def dashbord(user):
+def dashbord(user,token):
     return jsonify({
     "message": "Welcome to admin dashboard",
     "user" : user.email
