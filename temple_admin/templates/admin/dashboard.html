@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+
+    <h1>Admin Dashboard</h1>
+
+    <!-- Logout -->
+    <button id="logoutBtn">
+        Logout
+    </button>
+
+    <hr>
+
+    <!-- ==================== ANNOUNCEMENT ==================== -->
+
+    <section>
+        <h2>Announcement</h2>
+
+        <form id="announcementForm">
+
+            <div>
+                <label for="announcementTitle">
+                    Title
+                </label>
+
+                <br>
+
+                <input
+                    type="text"
+                    id="announcementTitle"
+                    required
+                >
+            </div>
+
+            <br>
+
+            <div>
+                <label for="announcementContent">
+                    Content
+                </label>
+
+                <br>
+
+                <textarea
+                    id="announcementContent"
+                    rows="8"
+                    cols="50"
+                    required
+                ></textarea>
+            </div>
+
+            <br>
+
+            <button type="submit">
+                Update Announcement
+            </button>
+
+        </form>
+
+        <p id="announcementMessage"></p>
+    </section>
+
+
+    <hr>
+
+
+    <!-- ==================== GALLERY ==================== -->
+
+    <section>
+
+        <h2>Gallery</h2>
+
+        <!-- Upload -->
+        <h3>Upload Image</h3>
+
+        <form id="galleryUploadForm">
+
+            <div>
+                <label for="galleryImage">
+                    Image
+                </label>
+
+                <br>
+
+                <input
+                    type="file"
+                    id="galleryImage"
+                    required
+                >
+            </div>
+
+            <br>
+
+            <div>
+                <label for="galleryCaption">
+                    Caption
+                </label>
+
+                <br>
+
+                <input
+                    type="text"
+                    id="galleryCaption"
+                    placeholder="Image caption"
+                >
+            </div>
+
+            <br>
+
+            <button type="submit">
+                Upload Image
+            </button>
+
+        </form>
+
+        <p id="galleryMessage"></p>
+
+
+        <!-- Gallery -->
+        <h3>Current Gallery</h3>
+
+        <div id="galleryContainer">
+            Loading gallery...
+        </div>
+
+    </section>
+
+
+    <script src="{{ url_for('static', filename='admin/js/dashbord.js') }}"></script>
+
+</body>
+</html>
